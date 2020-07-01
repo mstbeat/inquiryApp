@@ -12,10 +12,12 @@ import com.example.demo.entity.Inquiry;
 public class InquiryServiceImpl implements InquiryService {
 
 	private final InquiryDao dao;
-	
-	@Autowired InquiryServiceImpl(InquiryDao dao){
+
+	@Autowired
+	InquiryServiceImpl(InquiryDao dao) {
 		this.dao = dao;
 	}
+
 	@Override
 	public void save(Inquiry inquiry) {
 		dao.insertInquiry(inquiry);
@@ -25,10 +27,10 @@ public class InquiryServiceImpl implements InquiryService {
 	public List<Inquiry> getAll() {
 		return dao.getAll();
 	}
-	
+
 	@Override
 	public void update(Inquiry inquiry) {
-		if(dao.updateInquiry(inquiry) == 0) {
+		if (dao.updateInquiry(inquiry) == 0) {
 			throw new InquiryNotFoundException("can't find the ID you requested");
 		}
 	}

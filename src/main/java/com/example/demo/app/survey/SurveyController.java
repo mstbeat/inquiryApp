@@ -72,13 +72,13 @@ public class SurveyController {
 			model.addAttribute("title", "Survey Form");
 			return "survey/form";
 		}
-		
+
 		Survey survey = new Survey();
 		survey.setAge(surveyForm.getAge());
 		survey.setSatisfaction(surveyForm.getSatisfaction());
 		survey.setComment(surveyForm.getComment());
 		survey.setCreated(LocalDateTime.now());
-		
+
 		surveyService.save(survey);
 		redirectAttributes.addFlashAttribute("complete", "Registered!");
 		return "redirect:/survey/form";

@@ -29,16 +29,16 @@ public class SurveyDaoImpl implements SurveyDao {
 
 	@Override
 	public List<Survey> getAll() {
-		String sql ="select id,age,satisfaction,comment,created from survey";
-		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql); 
+		String sql = "select id,age,satisfaction,comment,created from survey";
+		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);
 		List<Survey> list = new ArrayList<Survey>();
 		for (Map<String, Object> result : resultList) {
 			Survey survey = new Survey();
-			survey.setId((int)result.get("id"));
-			survey.setAge((int)result.get("age"));
-			survey.setSatisfaction((int)result.get("satisfaction"));
-			survey.setComment((String)result.get("comment"));
-			survey.setCreated(((Timestamp)result.get("created")).toLocalDateTime());
+			survey.setId((int) result.get("id"));
+			survey.setAge((int) result.get("age"));
+			survey.setSatisfaction((int) result.get("satisfaction"));
+			survey.setComment((String) result.get("comment"));
+			survey.setCreated(((Timestamp) result.get("created")).toLocalDateTime());
 			list.add(survey);
 		}
 		return list;
